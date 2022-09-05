@@ -8,7 +8,7 @@ interface RulesInterface
 {
     public function validateAny():array;
 
-    public function loadRules(array $data= array()):RulesService;
+    public function loadRules(array $data= array()):Self;
 
     public function addRule(callable $rule):void;
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+
 use App\Interfaces\RulesInterface;
 
 /**
@@ -8,8 +9,8 @@ use App\Interfaces\RulesInterface;
  */
 class RulesService implements RulesInterface
 {
-    private $rules;
-    private $fact;
+    private array $rules;
+    private array $fact;
 
     public function validateAny(): array
     {
@@ -25,7 +26,7 @@ class RulesService implements RulesInterface
 
     }
 
-    public function loadRules(array $data = array() ):RulesService
+    public function loadRules(array $data = array()): Self
     {
         $this->fact = $data;
         $this->addRule(fn($fact) => in_array($fact['departure'], array('LT', 'LV')));
@@ -37,7 +38,7 @@ class RulesService implements RulesInterface
         return $this;
     }
 
-    public function addRule(callable $rule  ): void
+    public function addRule(callable $rule): void
     {
         $this->rules[] = $rule;
     }

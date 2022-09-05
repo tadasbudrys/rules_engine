@@ -9,10 +9,10 @@ abstract class RuleAbstractClass
 {
     public function validate( array $data = array()): array
     {
-        $rules = $this->getRulesSet();
-        return $rules->loadRules($data)->validateAny();
+
+        return $this->getRulSet()->loadRules($data)->validateAny();
     }
 
-    abstract public function getRulesSet(): RulesInterface;
+    abstract public function getRulSet(): RulesInterface;
 
 }
