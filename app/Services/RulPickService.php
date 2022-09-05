@@ -10,7 +10,7 @@ use App\Interfaces\RulesInterface;
  */
 class RulespickerSerivece extends RuleAbstractClass
 {
-    public function getRulesSet(): RulesInterface
+    public function getRulSet(): RulesInterface
     {
 
         return new RulesService();
